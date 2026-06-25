@@ -1,10 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Mi Portafolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI Portfolio · Pablo Sacie Moreno</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+      background: #f4f7f9;
+      color: #333;
+    }
+
+    a { color: #10657E; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ───────────────────────────────────────────────────────── */
+    header {
+      background: #10657E;
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    header p.subtitle {
+      margin-top: .4rem;
+      font-size: 1rem;
+      opacity: .85;
+    }
+
+    header nav {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    header nav a {
+      color: #dbe8ec;
+      font-size: .875rem;
+      border: 1px solid rgba(255,255,255,.35);
+      padding: .3rem .75rem;
+      border-radius: 4px;
+      transition: background .2s;
+    }
+
+    header nav a:hover {
+      background: rgba(255,255,255,.15);
+      text-decoration: none;
+    }
+
+    /* ── Intro ────────────────────────────────────────────────────────── */
+    .intro {
+      max-width: 860px;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+      font-size: .95rem;
+      line-height: 1.65;
+      color: #444;
+    }
+
+    /* ── Section title ────────────────────────────────────────────────── */
+    .section-title {
+      max-width: 860px;
+      margin: 2.5rem auto .75rem;
+      padding: 0 1.5rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #10657E;
+    }
+
+    /* ── Dashboard grid ───────────────────────────────────────────────── */
+    .grid {
+      max-width: 860px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    /* ── Dashboard card ───────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 1.1rem 1.4rem .6rem;
+      border-bottom: 1px solid #e8f0f3;
+    }
+
+    .card-header h2 {
+      font-size: 1.05rem;
+      color: #10657E;
+      font-weight: 700;
+    }
+
+    .card-header .tags {
+      margin-top: .35rem;
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+    }
+
+    .card-header .tag {
+      background: #dbe8ec;
+      color: #10657E;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .15rem .55rem;
+      border-radius: 3px;
+      letter-spacing: .03em;
+    }
+
+    .card-header p {
+      margin-top: .5rem;
+      font-size: .875rem;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    /* ── Embed area ───────────────────────────────────────────────────── */
+    .embed-wrapper {
+      position: relative;
+      width: 100%;
+      /* 16:9 ratio — ajusta si tus reports son más cuadrados */
+      padding-bottom: 56.25%;
+      background: #f0f5f7;
+    }
+
+    .embed-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Placeholder visible cuando no hay URL real */
+    .embed-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      color: #7a9faa;
+      font-size: .85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .embed-placeholder svg {
+      opacity: .4;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .78rem;
+      color: #999;
+      border-top: 1px solid #e0e8ec;
+    }
+  </style>
 </head>
 <body>
-    <h1>Mis Proyectos de Power BI</h1>
-    <p>Hola, me llamo Pablo y este es mi espacio de trabajo.</p>
+
+<!-- ═══════════════════════════════════════════════════════════════════ HEADER -->
+<header>
+  <h1>Pablo Sacie Moreno</h1>
+  <p class="subtitle">Data Analyst Junior &nbsp;·&nbsp; Power BI Portfolio</p>
+  <nav>
+    <a href="https://www.linkedin.com/in/pablosacie/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/PSacieM" target="_blank">GitHub</a>
+    <a href="mailto:pablo.sacie.moreno@gmail.com">Contacto</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════════════════ INTRO -->
+<p class="intro">
+  Colección de dashboards desarrollados con Microsoft Power BI,
+  aplicando modelado de datos, DAX y visualización para convertir
+  datos en decisiones. Cada informe es interactivo — usa los filtros
+  y segmentaciones para explorar los datos.
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ DASHBOARDS -->
+<p class="section-title">Dashboards</p>
+
+<div class="grid">
+
+  <!-- ── DASHBOARD 1 ────────────────────────────────────────────────────────
+       INSTRUCCIONES PARA PABLO:
+       1. Abre el .pbix en Power BI Desktop
+       2. Archivo → Publicar → Publicar en Power BI (necesitas cuenta gratuita)
+       3. En app.powerbi.com, abre el report publicado
+       4. Archivo → Insertar informe → Publicar en Web (público)
+       5. Copia la URL del iframe (src="https://app.powerbi.com/view?r=...")
+       6. Pégala en el atributo src del <iframe> de abajo y elimina el div.embed-placeholder
+  ──────────────────────────────────────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Dashboard 1 — [Título del informe]</h2>
+      <div class="tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <!-- Añade más tags según el dataset: Ventas, RRHH, Marketing... -->
+      </div>
+      <p>
+        [Descripción breve: qué problema analiza, qué datos usa y qué decisiones facilita.
+        Ejemplo: "Análisis de ventas por región y producto con comparativa YoY y KPIs de desviación presupuestaria."]
+      </p>
+    </div>
+    <div class="embed-wrapper">
+      <!--
+        CUANDO TENGAS LA URL: sustituye todo el div.embed-placeholder por:
+        <iframe src="https://app.powerbi.com/view?r=TU_TOKEN_AQUI"
+                allowFullScreen="true"></iframe>
+      -->
+      <div class="embed-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10657E" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+          <rect x="12" y="12" width="6" height="6" rx="1" fill="#10657E" fill-opacity=".3" stroke="none"/>
+        </svg>
+        <span>Informe interactivo disponible próximamente</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD 2 ──────────────────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Dashboard 2 — [Título del informe]</h2>
+      <div class="tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+      </div>
+      <p>
+        [Descripción breve del segundo informe.]
+      </p>
+    </div>
+    <div class="embed-wrapper">
+      <div class="embed-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10657E" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+          <rect x="12" y="12" width="6" height="6" rx="1" fill="#10657E" fill-opacity=".3" stroke="none"/>
+        </svg>
+        <span>Informe interactivo disponible próximamente</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD 3 ──────────────────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Dashboard 3 — [Título del informe]</h2>
+      <div class="tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+      </div>
+      <p>
+        [Descripción breve del tercer informe.]
+      </p>
+    </div>
+    <div class="embed-wrapper">
+      <div class="embed-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10657E" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+          <rect x="12" y="12" width="6" height="6" rx="1" fill="#10657E" fill-opacity=".3" stroke="none"/>
+        </svg>
+        <span>Informe interactivo disponible próximamente</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Duplica el bloque anterior para añadir más dashboards -->
+
+</div>
+
+<footer>
+  Pablo Sacie Moreno &nbsp;·&nbsp;
+  <a href="https://github.com/PSacieM/Power-BI-Portfolio" target="_blank">Ver repositorio en GitHub</a>
+</footer>
+
 </body>
 </html>
