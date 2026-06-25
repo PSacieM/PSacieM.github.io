@@ -35,6 +35,14 @@
             background: #10657E;
             color: #fff;
             padding: 2.5rem 2rem 2rem;
+            display: flex;
+            /* Añade esto */
+            flex-direction: column;
+            /* Añade esto */
+            align-items: center;
+            /* Esto centra horizontalmente */
+            text-align: center;
+            /* Asegura que el texto dentro esté centrado */
         }
 
         header h1 {
@@ -55,6 +63,8 @@
             display: flex;
             gap: 1.2rem;
             flex-wrap: wrap;
+            justify-content: center;
+            /* Esto centra los enlaces horizontalmente */
         }
 
         header nav a {
@@ -181,6 +191,22 @@
             line-height: 1.55;
         }
 
+        .card-description {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .card-description ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-description li {
+            margin-bottom: 0.4rem;
+        }
+
         /* ── Embed area ───────────────────────────────────────────────────── */
         .embed-wrapper {
             position: relative;
@@ -260,7 +286,7 @@
     <p class="intro">
         Colección de dashboards desarrollados con Microsoft Power BI,
         aplicando modelado de datos, DAX y visualización para convertir
-        datos en decisiones. Cada informe es interactivo — Si quieres explorarlos
+        datos en decisiones. Cada informe es interactivo - Si quieres explorarlos
         a placer tienes el enlace a GitHub con los proyectos subidos en el encabezado
         o en el pie de página.
     </p>
@@ -283,11 +309,22 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve: qué problema analiza, qué datos usa y qué decisiones facilita.
-                    Ejemplo: "Análisis de ventas por región y producto con comparativa YoY y KPIs de desviación
-                    presupuestaria."]
-                </p>
+                <div class="card-description">
+                    <p>Este informe proporciona una visión global de la salud operativa de Adventure Works, centrado en
+                        KPIs críticos como Ingreso Total, Rentabilidad y Tasa de Devolución.</p>
+                    <p><strong>Aspectos Técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Navegación Intuitiva:</strong> Barra lateral personalizada para una navegación
+                            fluida entre las diferentes secciones del informe, mejorando la coherencia visual y la
+                            experiencia de usuario.</li>
+                        <li><strong>Visualización de Datos Avanzada:</strong> Uso de tablas optimizadas con formato
+                            condicional y barras de datos integradas en columnas clave, permitiendo una comparación
+                            rápida del rendimiento de los 10 productos principales.</li>
+                        <li><strong>Análisis Temporal:</strong> Visualización de tendencias con indicadores de
+                            desviación mes a mes e implementación de métricas DAX complejas para el cálculo preciso de
+                            KPIs.</li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
@@ -304,9 +341,21 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve del segundo informe.]
-                </p>
+                <div class="card-description">
+                    <p>Este informe interactivo permite realizar un análisis profundo de la distribución geográfica de
+                        las ventas. A través de un mapa de burbujas, se identifica rápidamente el volumen de pedidos por
+                        región, facilitando la detección de mercados clave y oportunidades de expansión.</p>
+                    <p><strong>Aspectos Técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Interactividad Avanzada:</strong> Implementación de segmentadores (slicers)
+                            personalizados que permiten filtrar dinámicamente los datos por territorio (Europa,
+                            Norteamérica, Pacífico).</li>
+                        <li><strong>Visualización de Datos:</strong> Uso de mapas de geolocalización optimizados, donde
+                            el tamaño de cada burbuja es proporcional al volumen de ventas.</li>
+                        <li><strong>UX/UI:</strong> Diseño oscuro (Dark Mode) que resalta los datos clave y reduce la
+                            fatiga visual.</li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
@@ -323,9 +372,22 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve del tercer informe.]
-                </p>
+                <div class="card-description">
+                    <p>Un panel avanzado diseñado para el análisis profundo de productos individuales, permitiendo
+                        simular escenarios de precios y medir su impacto directo en la rentabilidad. Este dashboard
+                        permite a los gestores de producto tomar decisiones estratégicas basadas en datos históricos y
+                        proyecciones.</p>
+                    <p><strong>Aspectos Técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Análisis "What-if":</strong> Implementación de parámetros de simulación que permiten
+                            ajustar dinámicamente el precio del producto y observar el impacto inmediato en el beneficio
+                            total (Adjusted Profit).</li>
+                        <li><strong>Modelado de KPIs:</strong> Uso de gráficos de tipo medidor (gauge charts) para
+                            comparar el rendimiento actual contra objetivos definidos (Target).</li>
+                        <li><strong>Inteligencia Narrativa:</strong> Panel de resumen inteligente que genera insights
+                            automáticos, facilitando la interpretación de métricas clave.</li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
@@ -342,9 +404,22 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve del tercer informe.]
-                </p>
+                <div class="card-description">
+                    <p>Este informe integra una arquitectura de navegación avanzada diseñada para maximizar el espacio
+                        de visualización sin sacrificar la profundidad del análisis.</p>
+                    <p><strong>Aspectos Técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Arquitectura de Bookmarks:</strong> Implementación de un sistema de navegación
+                            mediante marcadores (bookmarks) que permite cambiar dinámicamente entre vistas de
+                            información, optimizando el espacio del dashboard.</li>
+                        <li><strong>Narrativa Condicional:</strong> Integración de paneles de información que se activan
+                            bajo demanda, mostrando textos descriptivos específicos según la vista seleccionada por el
+                            usuario.</li>
+                        <li><strong>UX/UI Estratégico:</strong> Diseño enfocado en la reducción de ruido visual,
+                            permitiendo que el usuario pase de una visión global a una narrativa detallada mediante
+                            interacciones intuitivas (botones de acción).</li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
@@ -361,9 +436,22 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve del tercer informe.]
-                </p>
+                <div class="card-description">
+                    <p>La calidad de un modelo de datos se mide por su capacidad de ser mantenido y escalado. Esta
+                        página actúa como un catálogo centralizado de medidas DAX, garantizando que el modelo sea
+                        transparente y fácil de auditar.</p>
+                    <p><strong>Aspectos Técnicos:</strong></p>
+                    <ul>
+                        <li><strong>Gobernanza de Datos:</strong> Documentación exhaustiva que incluye la descripción
+                            lógica, la expresión DAX y la ubicación de cada medida, vital para el trabajo colaborativo.
+                        </li>
+                        <li><strong>Transparencia Analítica:</strong> Catálogo interactivo que permite filtrar medidas
+                            por tipo o nombre, facilitando la validación rápida de la lógica de negocio aplicada.</li>
+                        <li><strong>Buenas Prácticas:</strong> Aplicación de estándares de desarrollo (como el uso de
+                            tablas dedicadas para medidas) que simplifican el mantenimiento y evitan la deuda técnica en
+                            el modelo.</li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
@@ -380,9 +468,35 @@
                     <span class="tag">Power BI</span>
                     <span class="tag">DAX</span>
                 </div>
-                <p>
-                    [Descripción breve del tercer informe.]
-                </p>
+                <div class="card-description">
+                    <p>Este informe constituye la solución integral de inteligencia de negocio para MavenMarket,
+                        consolidando múltiples fuentes de datos para ofrecer una visión 360° del rendimiento retail. El
+                        objetivo es transformar datos transaccionales brutos en decisiones estratégicas sobre
+                        inventario, expansión regional y rentabilidad de marca.</p>
+
+                    <p><strong>Desglose Técnico y Funcional:</strong></p>
+                    <ul>
+                        <li><strong>Monitorización de KPIs en Tiempo Real:</strong> Paneles superiores (Cards) que
+                            muestran las transacciones, beneficios y devoluciones del mes actual, comparándolos
+                            automáticamente contra objetivos (targets) mediante medidas DAX de inteligencia temporal.
+                        </li>
+                        <li><strong>Análisis de Rendimiento de Marca:</strong> Tabla maestra de alta densidad que
+                            utiliza formato condicional para evaluar simultáneamente <em>Total Transactions</em>,
+                            <em>Profit</em>, <em>Profit Margin</em> y <em>Return Rate</em>, permitiendo identificar
+                            rápidamente marcas con baja rentabilidad o altos ratios de devolución.
+                        </li>
+                        <li><strong>Inteligencia Geográfica:</strong> Implementación de mapas interactivos que
+                            visualizan la distribución de ventas a nivel global, permitiendo a la gerencia identificar
+                            clústeres de mercado y oportunidades de expansión territorial.</li>
+                        <li><strong>Análisis de Estructura de Ventas:</strong> Uso de <em>Treemaps</em> dinámicos que
+                            categorizan las ventas por ubicación, facilitando la detección jerárquica de mercados clave
+                            en un entorno visualmente intuitivo.</li>
+                        <li><strong>Tendencias de Ingresos:</strong> Gráfico de líneas temporales (<em>Weekly Revenue
+                                Trending</em>) diseñado para el seguimiento de la estacionalidad, permitiendo prever
+                            fluctuaciones en los ingresos y ajustar la cadena de suministro según la demanda histórica.
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="embed-wrapper">
                 <div class="Dashboard">
