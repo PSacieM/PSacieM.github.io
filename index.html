@@ -100,16 +100,23 @@
             font-weight: 600;
             cursor: pointer;
             border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .tabs button:hover {
+            background-color: #eef6f8;
+            color: #10657E;
+        }
+
+        .tabs button.active {
             background-color: #10657E;
             color: #ffffff;
+            /* Texto blanco sobre azul oscuro */
+            border: 2px solid #10657E;
         }
 
         .tabs button:active {
-            transform: translateY(2px);
+            transform: translateY(1px);
         }
 
         .project-item.hidden {
@@ -123,6 +130,33 @@
             padding: 0 1.5rem;
             font-size: .95rem;
             line-height: 1.65;
+            color: #444;
+        }
+
+        .project-description-container {
+            /* Reducimos esto de 860px a algo más ajustado */
+            max-width: 810px;
+
+            /* Mantenemos el centrado */
+            margin: 2rem auto;
+
+            /* Mantenemos tu estilo preferido */
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+            border-left: 5px solid #10657E;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-description-container h3 {
+            color: #10657E;
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+        }
+
+        .project-description-container p {
+            font-size: 0.95rem;
+            line-height: 1.7;
             color: #444;
         }
 
@@ -292,9 +326,25 @@
     </p>
 
     <nav class="tabs">
-        <button onclick="filterProjects('AdventureWorks')">AdventureWorks</button>
-        <button onclick="filterProjects('MavenMarket')">MavenMarket</button>
+        <button onclick="filterProjects('AdventureWorks', this)">AdventureWorks</button>
+        <button onclick="filterProjects('MavenMarket', this)">MavenMarket</button>
     </nav>
+
+    <div id="adventureworks-desc" class="project-description-container">
+        <h3>Proyecto: AdventureWorks - Transformación Digital de Ventas</h3>
+        <p>Este proyecto se centra en la optimización de los procesos de análisis de ventas para una empresa líder en
+            equipamiento deportivo. A través de este informe, desarrollé un modelo de datos escalable que integra la
+            gestión de inventarios, el comportamiento del cliente y el rendimiento regional, permitiendo a la dirección
+            tomar decisiones basadas en datos precisos sobre precios y estacionalidad.</p>
+    </div>
+
+    <div id="mavenmarket-desc" class="project-description-container" style="display: none;">
+        <h3>Proyecto: MavenMarket - Inteligencia Retail</h3>
+        <p>Un enfoque orientado al sector retail masivo. Este proyecto tiene como objetivo analizar el rendimiento
+            de marcas y la eficiencia de las operaciones por sucursal. Mediante la implementación de KPIs
+            financieros y métricas de retorno, este dashboard facilita la identificación de oportunidades de
+            expansión geográfica y la corrección de ineficiencias en la cadena de suministro.</p>
+    </div>
 
     <!-- ═══════════════════════════════════════════════════════════════ DASHBOARDS -->
     <p class="section-title">Dashboards</p>
@@ -513,19 +563,29 @@
     </footer>
 
     <script>
-        function filterProjects(category) {
+        function filterProjects(category, element) {
+            // 1. Filtrar las tarjetas
             const items = document.querySelectorAll('.project-item');
             items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
+                item.style.display = (category === 'all' || item.getAttribute('data-category') === category) ? 'block' : 'none';
             });
+
+            // 2. Gestionar la clase 'active' en los botones
+            const buttons = document.querySelectorAll('.tabs button');
+            buttons.forEach(btn => btn.classList.remove('active')); // Quitamos a todos
+            if (element) {
+                element.classList.add('active'); // Se la ponemos al pulsado
+            }
+
+            // 3. Gestionar descripciones (si las tienes)
+            document.getElementById('adventureworks-desc').style.display = (category === 'AdventureWorks') ? 'block' : 'none';
+            document.getElementById('mavenmarket-desc').style.display = (category === 'MavenMarket') ? 'block' : 'none';
         }
 
+        // Al cargar, marcamos el botón de AdventureWorks como activo
         window.onload = function () {
-            filterProjects('AdventureWorks');
+            const defaultBtn = document.querySelector('.tabs button'); // Selecciona el primero
+            filterProjects('AdventureWorks', defaultBtn);
         };
     </script>
 
